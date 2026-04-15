@@ -399,3 +399,37 @@ This application is not:
 
 ---
 
+
+---
+
+## 16. Initial Implementation (Current Repo State)
+
+A first runnable scaffold is now included:
+
+- `app.py`: Streamlit GUI for generator selection, global params, transforms, macro load/save, validation, and dataset generation.
+- `sigsynth/`: Core modules for metadata registry, validation, macro I/O, and placeholder generation.
+- `macros/sig53.yaml`: Starter macro for Sig53-style narrowband setup.
+- `macros/wideband_sig53.yaml`: Starter macro for wideband Sig53-style setup.
+
+### Run locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Run locally with uv (preferred)
+
+```bash
+# initialize torchsig submodule (once after clone)
+git submodule update --init --recursive
+
+# create/update environment with local torchsig path source
+uv sync
+uv run streamlit run app.py
+```
+
+### Notes
+
+- The app now attempts TorchSig-native generation first (`torchsig.utils.generate.generate`) and falls back to NumPy placeholder IQ generation when the TorchSig backend is unavailable or incompatible.
+- After generation, the app provides a dataset ZIP download button so hosted Streamlit deployments can export generated artifacts.

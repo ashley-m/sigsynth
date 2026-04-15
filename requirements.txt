@@ -3,7 +3,8 @@ numpy
 scipy
 torch
 
-# TorchSig (install via pip or GitHub)
+# TorchSig (prefer local submodule for reproducible dev)
+# install with `uv sync` to use `third_party/torchsig` path source from pyproject.toml
 torchsig
 
 # Config + serialization

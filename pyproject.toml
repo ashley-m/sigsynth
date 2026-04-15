@@ -1,0 +1,20 @@
+[project]
+name = "sigsynth"
+version = "0.1.0"
+description = "TorchSig Dataset Builder"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "scipy",
+  "torch",
+  "torchsig",
+  "pyyaml",
+  "streamlit",
+  "pandas",
+  "matplotlib",
+  "tqdm",
+]
+
+[tool.uv.sources]
+torchsig = { path = "third_party/torchsig", editable = true }
